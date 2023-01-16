@@ -1,4 +1,7 @@
-// async function getStarsFromVote(note) {
+// 
+// Ancienne tentative pour attribuer les etoiles avec ionicone plutot que awsomeicon plus bas *
+//
+//async function getStarsFromVote(note) {
 //     let starEmpty = '<ion-icon name="star-outline"></ion-icon>'
 //     let halfStar = '<ion-icon name="star-half-outline"></ion-icon>'
 //     let fullStar = '<ion-icon name="star"></ion-icon>'
@@ -39,10 +42,10 @@
 //         }
 //     }
 
+// -----------------------------------------------------------
 
 
-
-function getArticle(movie) {
+function getArticle(movie) { // Fonction permettant de crée un article avec une mise en page Bootstrap 
     let article = document.createElement('Article')
     article.className = 'card mb-3 bg-secondary border-0 col-6 col-md-4 col-xl-3 mt-4'
     let description = movie.overview
@@ -63,7 +66,7 @@ function getArticle(movie) {
     return article
 }
 
-function getStarsFromVote(score) {
+function getStarsFromVote(score) { // Fonction permettant de de calculer et attribuer un nombre d'etoile en fonction de la note / 10 donner dans le json
     score = parseInt(score+0.5)/2;
     container = document.createElement("div");
     let n_fill = parseInt(score);
@@ -78,7 +81,7 @@ function getStarsFromVote(score) {
     return container.innerHTML;
 }
 
-fetch(new Request ('assets/data/movies.json'))
+fetch(new Request ('assets/data/movies.json')) // recherche du fichier movies.json permettant aisni la communication entre le fichier json et le js 
     .then((result) => result.json())
     .then((result) => {
         let movie_article = document.getElementById("movie-article")
